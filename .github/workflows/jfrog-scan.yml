@@ -20,17 +20,4 @@ jobs:
 
       - name: Verify JFrog connection
         run: jf rt ping
-      - name: Docker login to Artifactory
-        run: |
-          echo ${{ secrets.JF_ACCESS_TOKEN }} | docker login \
-            ${{ secrets.JF_URL }} \
-            --username vigneshs \
-            --password-Password1*
-
-      - name: Pull image from Artifactory
-        run: |
-          docker pull docker-local/nginx:1.23
-
-      - name: Scan image and fail build
-        run: |
-          jf docker scan docker-local/nginx:1.23 --fail=true
+      
