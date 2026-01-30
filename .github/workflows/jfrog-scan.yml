@@ -1,0 +1,22 @@
+name: JFrog CLI Test
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  jfrog-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup JFrog CLI
+        uses: jfrog/setup-jfrog-cli@v4
+        env:
+          JF_URL: ${{ secrets.JF_URL }}
+          JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
+
+      - name: Verify JFrog connection
+        run: jf rt ping
