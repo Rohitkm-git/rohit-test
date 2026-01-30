@@ -27,4 +27,4 @@ jobs:
 
       - name: Scan image and fail on policy
         run: |
-          jf docker scan node:18-alpine --fail=true
+          jf docker scan node:18-alpine --watches="Rohit-watch" --fail=true
