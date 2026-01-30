@@ -24,8 +24,8 @@ jobs:
         run: |
           echo ${{ secrets.JF_ACCESS_TOKEN }} | docker login \
             ${{ secrets.JF_URL }} \
-            --username unused \
-            --password-stdin
+            --username vigneshs \
+            --password-Password1*
 
       - name: Pull image from Artifactory
         run: |
