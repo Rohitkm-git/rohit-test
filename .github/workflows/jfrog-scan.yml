@@ -21,3 +21,10 @@ jobs:
       - name: Verify JFrog connection
         run: jf rt ping
       
+      - name: Pull image from Docker Hub
+        run: |
+          docker pull node:18-alpine
+
+      - name: Scan image and fail on policy
+        run: |
+          jf docker scan node:18-alpine --fail=true
